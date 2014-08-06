@@ -1,0 +1,17 @@
+html {
+    background: url(../img/Denver.jpeg) no-repeat center center fixed;
+    background-size: cover;
+}
+
+body {
+    background: transparent;
+}
+
+.panel {
+    background: rgba(255,255,255,.5);
+    text-align: center;
+}
+
+.progress {
+    display: none;
+}

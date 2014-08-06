@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <link rel="stylesheet" href="css/index.css"/>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://www.github.com/steveperrito">Weather</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">City <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#" data-bg="img/Denver.jpeg" class="cityOption active" name="CO/Denver.json">Denver, CO</a></li>
+                        <li><a href="#" data-bg="img/palmspringsfront.jpg" class="cityOption" name="CA/Palm_Springs.json">Palm Springs, CA</a></li>
+                        <li><a href="#" data-bg="img/Ann_Morrison_Park.jpg" class="cityOption" name="ID/Boise.json">Boise, ID</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+        </div>
+</nav>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" data-transitiongoal="100">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3 panel">
+        <h1 class="cityTitle"></h1>
+        <hr>
+        <h3>
+            <span class="wthrStr"></span>
+            <span class="currentTemp"></span>
+        </h3>
+        <p><em>Satellite</em><br /><img class="wthrImg" /></p>
+    </div>
+</div>
+
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="bootstrap-progressbar/bootstrap-progressbar.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>
