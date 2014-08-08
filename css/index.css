@@ -1,5 +1,5 @@
 html {
-    background: url(../img/Denver.jpeg) no-repeat center center fixed;
+    background: url(https://maps.googleapis.com/maps/api/staticmap?center=Denver,CO&zoom=11&size=500x250&scale=2&maptype=roadmap&format=jpg&key=AIzaSyDPap0KQhzUiqFtvPD4u1uArwgL5kKT5rs) no-repeat center center fixed;
     background-size: cover;
 }
 
@@ -8,10 +8,25 @@ body {
 }
 
 .panel {
-    background: rgba(255,255,255,.5);
+    background: rgba(255,255,255,.9);
     text-align: center;
 }
 
 .progress {
     display: none;
+}
+
+h1, h3 {
+    color: black;
+}
+
+.zmPlus, .zmMinus {
+    cursor: pointer;
+}
+
+.top-buffer { margin-top:10px; }
+
+div.dropdown>a {
+    text-decoration: none;
+    color: #333;
 }

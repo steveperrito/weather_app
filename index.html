@@ -9,15 +9,13 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 
     <!-- Latest compiled and minified JavaScript -->
-    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="js/jquery-1.11.1.min.js"></script>
     <link rel="stylesheet" href="css/index.css"/>
 </head>
 <body>
 
 <nav class="navbar navbar-inverse" role="navigation">
     <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span>
@@ -28,23 +26,32 @@
             <a class="navbar-brand" href="http://www.github.com/steveperrito">Weather</a>
         </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">City <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="#" data-bg="img/Denver.jpeg" class="cityOption active" name="CO/Denver.json">Denver, CO</a></li>
-                        <li><a href="#" data-bg="img/palmspringsfront.jpg" class="cityOption" name="CA/Palm_Springs.json">Palm Springs, CA</a></li>
-                        <li><a href="#" data-bg="img/Ann_Morrison_Park.jpg" class="cityOption" name="ID/Boise.json">Boise, ID</a></li>
+                        <li><a href="#" class="cityOption active" name="CO/Denver.json">Denver, CO</a></li>
+                        <li><a href="#" class="cityOption" name="CA/Palm_Springs.json">Palm Springs, CA</a></li>
+                        <li><a href="#" class="cityOption" name="ID/Boise.json">Boise, ID</a></li>
+                        <li><a href="#" class="cityOption" name="CA/Sacramento.json">Sacramento, CA</a></li>
+                        <li><a href="#" class="cityOption" name="CA/Los_Angeles.json">Los Angeles, CA</a></li>
+                        <li><a href="#" class="cityOption" name="WA/Seattle.json">Seattle, WA</a></li>
+                        <li><a href="#" class="cityOption" name="OR/Portland.json">Portland, OR</a></li>
+                        <li><a href="#" class="cityOption" name="NV/Reno.json">Reno, NV</a></li>
+                        <li><a href="#" class="cityOption" name="NV/Las_Vegas.json">Las Vegas, NV</a></li>
+                        <li><a href="#" class="cityOption" name="AZ/Phoenix.json">Phoenix, AZ</a></li>
+                        <li><a href="#" class="cityOption" name="AZ/Tucson.json">Tucson, AZ</a></li>
+                        <li><a href="#" class="cityOption" name="TX/Dallas.json">Dallas, TX</a></li>
+                        <li><a href="#" class="cityOption" name="NY/New_York.json">New York, NY</a></li>
                     </ul>
                 </li>
             </ul>
         </div><!-- /.navbar-collapse -->
-        </div>
+    </div>
 </nav>
 <div class="row">
-    <div class="col-md-6 col-md-offset-3    ">
+    <div class="col-lg-3 col-lg-offset-1">
         <div class="progress">
             <div class="progress-bar" role="progressbar" data-transitiongoal="100">
             </div>
@@ -52,7 +59,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-md-6 col-md-offset-3 panel">
+    <div class="col-lg-3 col-lg-offset-1 panel">
         <h1 class="cityTitle"></h1>
         <hr>
         <h3>
@@ -61,9 +68,37 @@
         </h3>
         <p><em>Satellite</em><br /><img class="wthrImg" /></p>
     </div>
+
+    <div class="col-lg-1 col-lg-offset-6 panel">
+        <div class="row">
+            <div class="col-lg-12">Zoom</div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <span class="glyphicon glyphicon-plus text-left zmPlus"></span>
+            </div>
+            <div class="col-lg-6">
+                <span class="glyphicon glyphicon-minus text-right zmMinus"></span>
+            </div>
+        </div>
+        <div class="row top-buffer"></div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Map Type <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#" class="mapType" name="roadmap">Road Map</a></li>
+                        <li><a href="#" class="mapType" name="satellite">Satellite</a></li>
+                        <li><a href="#" class="mapType" name="hybrid">Hybrid</a></li>
+                        <li><a href="#" class="mapType" name="terrain">Terrain</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 <script src="js/bootstrap-progressbar.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
 </body>

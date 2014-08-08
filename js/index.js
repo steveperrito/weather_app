@@ -1,15 +1,28 @@
 $(function(){
+    var stateCity = 'CO/Denver.json';
+    var wUnderSat = 'http://api.wunderground.com/api/b024db5cff35b4fa/satellite/q/';
+    var wUnderCond = 'http://api.wunderground.com/api/b024db5cff35b4fa/conditions/q/';
+    var googURL = 'https://maps.googleapis.com/maps/api/staticmap';
+    var googApiOpts = {
+        center: 'Denver,CO', //city
+        format: "jpg",
+        key: "AIzaSyDPap0KQhzUiqFtvPD4u1uArwgL5kKT5rs",
+        maptype: "roadmap",
+        scale: "2",
+        size: "500x250",
+        zoom: "11"
+    };
 
     getItYo();
 
     function getItYo() {
-        var stateCity = $('.active').attr('name');
-        var ajaxSatUrl = 'http://api.wunderground.com/api/b024db5cff35b4fa/satellite/q/'+stateCity;
-        var ajaxCondUrl = 'http://api.wunderground.com/api/b024db5cff35b4fa/conditions/q/'+stateCity;
+        var ajaxSatUrl = wUnderSat+stateCity;
+        var ajaxCondUrl = wUnderCond+stateCity;
 
         $.ajax({
             url: ajaxSatUrl,
-            dataType: 'jsonp'
+            dataType: 'jsonp',
+            type: 'GET'
         })
             .done(function (data) {
                 var wthrIMG = data.satellite.image_url_vis;
@@ -18,7 +31,8 @@ $(function(){
 
         $.ajax({
             url: ajaxCondUrl,
-            dataType: 'jsonp'
+            dataType: 'jsonp',
+            type: 'GET'
         })
             .done(function (data) {
                 var wthrStr = data.current_observation.weather + ', ';
@@ -32,14 +46,13 @@ $(function(){
     }
 
     $('.cityOption').click(function(){
+        googApiOpts.center = nameAPI($(this).attr('name'));
         $('.active:eq(0)').removeClass('active');
         $(this).addClass('active');
-        var cityBG = $(this).attr('data-bg');
+        stateCity = $('.active').attr('name');
         $('div.panel').fadeOut(500, function(){
             setTimeout(function(){
-                $('html').css({'background': 'url('+cityBG +') no-repeat center center fixed',
-                    'background-size': 'cover',
-                    'transition': '0.5s'});
+                setBackground();
             }, 500);
             setTimeout(function(){
                 $('.progress').toggle(progressBar());
@@ -65,5 +78,54 @@ $(function(){
                 $('.progress .progress-bar').removeAttr('style');
             });
         }});
+    }
+
+    function appendObj(obj, url) {
+        var strStart = "?";
+        for (key in obj) {
+            strStart = strStart.concat(key + '=' + obj[key] + "&");
+        }
+        strStart = strStart.slice(0, -1);
+        return encodeURI(url.concat(strStart));
+    }
+
+    function nameAPI (str){
+        var ary = str.split('/');
+        var noJson = ary[1].slice(0,-5);
+        console.log(noJson);
+        var finalCity = noJson.replace('_','+');
+        return finalCity.concat(',',ary[0]);
+    }
+
+        $('.zmPlus').click(function(){
+            if(googApiOpts.zoom <17) {
+                googApiOpts.zoom = parseFloat(googApiOpts.zoom)+1;
+                setTimeout(function(){
+                    setBackground();
+                }, 50);
+            }
+            else return 0;
+        });
+
+        $('.zmMinus').click(function(){
+            //var googURL = 'https://maps.googleapis.com/maps/api/staticmap';
+            if(googApiOpts.zoom>0){
+                googApiOpts.zoom = parseFloat(googApiOpts.zoom)-1;
+                setTimeout(function(){
+                    setBackground();
+                }, 50);
+            }
+            else return 0;
+        });
+
+    $('.mapType').click(function(e){
+        e.preventDefault();
+        googApiOpts.maptype = $(this).attr('name');
+        setBackground();
+        console.log(googApiOpts.maptype);
+    });
+
+    function setBackground (){
+        $('html').css({'background': 'url('+appendObj(googApiOpts,googURL)+') no-repeat center center fixed','background-size': 'cover','transition': '0.5s'});
     }
 });
