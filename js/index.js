@@ -10,7 +10,7 @@ $(function(){
         maptype: "roadmap",
         scale: "2",
         size: "500x250",
-        zoom: "11"
+        zoom: "6"
     };
 
     getItYo();
